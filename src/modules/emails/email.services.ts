@@ -7,8 +7,10 @@ import { SendEmailPayload } from "./emails.types";
 export class EmailsService {
   constructor(
     private readonly apiKey: string,
-    private readonly baseUrl: string
-  ) {}
+    private readonly baseUrl?: string
+  ) {
+    this.baseUrl = "https://api.mailzeet.com/v1"
+  }
 
   /**
    * Send a transactional email

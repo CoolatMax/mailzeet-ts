@@ -10,7 +10,7 @@ import { EmailsService } from "../modules/emails/email.services";
  * await mailzeet.emails.send({...});
  * ```
  */
-export class MailzeetClient {
+export class MailZeetClient {
   public readonly emails: EmailsService;
 
   constructor(config: { apiKey: string; baseUrl?: string }) {

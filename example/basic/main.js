@@ -1,7 +1,7 @@
-import { MailzeetClient } from "../../dist/index.js";
+import { MailZeetClient } from "../../dist/index.js";
 
-const mailzeet = new MailzeetClient({
-  apiKey: "YOUR_API_KEY"
+const mailzeet = new MailZeetClient({
+  apiKey: "lz97im6jqpf8:01KD1268HXFEHZR5EJA6J0HQNB"
 });
 
 document
