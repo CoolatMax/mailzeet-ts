@@ -1,6 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";import { EmailsService } from "../src/modules/emails/email.services";
-import { MailzeetError } from "../dist";
-;
+import { MailZeetError } from "../dist";
 
 describe("EmailsService", () => {
   const apiKey = "lz97im6jqpf8:01KD1268HXFEHZR5EJA6J0HQNB";
@@ -75,6 +74,6 @@ describe("EmailsService", () => {
         subject: "Fail case",
         text: "Fail"
       })
-    ).rejects.toBeInstanceOf(MailzeetError);
+    ).rejects.toBeInstanceOf(MailZeetError);
   });
 });

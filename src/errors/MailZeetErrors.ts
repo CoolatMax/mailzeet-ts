@@ -1,7 +1,7 @@
 /**
  * Custom error thrown by Mailzeet SDK
  */
-export class MailzeetError extends Error {
+export class MailZeetError extends Error {
   /** HTTP status code */
   public readonly status: number;
 

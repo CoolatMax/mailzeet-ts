@@ -1,4 +1,4 @@
-import { MailzeetError } from "../errors/MailZeetErrors";
+import { MailZeetError } from "../errors/MailZeetErrors";
 
 
 /**
@@ -19,7 +19,7 @@ export async function http<T>(
   const data = await response.json().catch(() => null);
   
   if (!response.ok) {
-    throw new MailzeetError(
+    throw new MailZeetError(
       data?.message ?? response.statusText,
       data.status,
       data

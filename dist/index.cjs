@@ -1,3 +1,4 @@
+"use strict";
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
@@ -19,17 +20,13 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var index_exports = {};
 __export(index_exports, {
-  MailzeetClient: () => MailzeetClient,
-  MailzeetError: () => MailzeetError
+  MailZeetError: () => MailZeetError,
+  MailzeetClient: () => MailzeetClient
 });
 module.exports = __toCommonJS(index_exports);
 
 // src/errors/MailZeetErrors.ts
-var MailzeetError = class extends Error {
-  /** HTTP status code */
-  status;
-  /** Raw API response */
-  data;
+var MailZeetError = class extends Error {
   constructor(message, status, data) {
     super(message);
     this.name = "MailzeetError";
@@ -43,8 +40,8 @@ async function http(url, options) {
   const response = await fetch(url, options);
   const data = await response.json().catch(() => null);
   if (!response.ok) {
-    throw new MailzeetError(
-      (data == null ? void 0 : data.message) ?? response.statusText,
+    throw new MailZeetError(
+      data?.message ?? response.statusText,
       data.status,
       data
     );
@@ -75,9 +72,8 @@ var EmailsService = class {
   }
 };
 
-// src/client/MailzeetClient.ts
+// src/client/MailZeetClient.ts
 var MailzeetClient = class {
-  emails;
   constructor(config) {
     const baseUrl = config.baseUrl ?? "https://api.mailzeet.com/v1";
     this.emails = new EmailsService(config.apiKey, baseUrl);
@@ -85,6 +81,6 @@ var MailzeetClient = class {
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  MailzeetClient,
-  MailzeetError
+  MailZeetError,
+  MailzeetClient
 });

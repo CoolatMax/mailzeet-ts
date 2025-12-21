@@ -6,9 +6,16 @@ interface MailzeetSender {
     name?: string;
 }
 /**
- * Email recipient
+ * Email recipient (also used for CC and BCC)
  */
 interface MailzeetRecipient {
+    email: string;
+    name?: string;
+}
+/**
+ * Reply-to object
+ */
+interface MailzeetReplyTo {
     email: string;
     name?: string;
 }
@@ -16,9 +23,12 @@ interface MailzeetRecipient {
  * Payload for sending an email via Mailzeet API
  */
 interface SendEmailPayload {
-    sender: MailzeetSender;
+    sender?: MailzeetSender;
     recipients: MailzeetRecipient[];
-    subject: string;
+    cc?: MailzeetRecipient[];
+    bcc?: MailzeetRecipient[];
+    reply_to?: MailzeetReplyTo;
+    subject?: string;
     text?: string;
     html?: string;
     template_id?: string;
@@ -63,7 +73,7 @@ declare class MailzeetClient {
 /**
  * Custom error thrown by Mailzeet SDK
  */
-declare class MailzeetError extends Error {
+declare class MailZeetError extends Error {
     /** HTTP status code */
     readonly status: number;
     /** Raw API response */
@@ -71,4 +81,4 @@ declare class MailzeetError extends Error {
     constructor(message: string, status: number, data?: unknown);
 }
 
-export { MailzeetClient, MailzeetError };
+export { MailZeetError, MailzeetClient };

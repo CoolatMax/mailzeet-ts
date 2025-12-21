@@ -1,9 +1,5 @@
 // src/errors/MailZeetErrors.ts
-var MailzeetError = class extends Error {
-  /** HTTP status code */
-  status;
-  /** Raw API response */
-  data;
+var MailZeetError = class extends Error {
   constructor(message, status, data) {
     super(message);
     this.name = "MailzeetError";
@@ -17,8 +13,8 @@ async function http(url, options) {
   const response = await fetch(url, options);
   const data = await response.json().catch(() => null);
   if (!response.ok) {
-    throw new MailzeetError(
-      (data == null ? void 0 : data.message) ?? response.statusText,
+    throw new MailZeetError(
+      data?.message ?? response.statusText,
       data.status,
       data
     );
@@ -49,15 +45,14 @@ var EmailsService = class {
   }
 };
 
-// src/client/MailzeetClient.ts
+// src/client/MailZeetClient.ts
 var MailzeetClient = class {
-  emails;
   constructor(config) {
     const baseUrl = config.baseUrl ?? "https://api.mailzeet.com/v1";
     this.emails = new EmailsService(config.apiKey, baseUrl);
   }
 };
 export {
-  MailzeetClient,
-  MailzeetError
+  MailZeetError,
+  MailzeetClient
 };
