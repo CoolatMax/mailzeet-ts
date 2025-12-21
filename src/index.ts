@@ -1,2 +1,2 @@
-export * from "./client/MailzeetClient";
+export * from "./client/MailZeetClient";
 export * from "./errors/MailZeetErrors";
