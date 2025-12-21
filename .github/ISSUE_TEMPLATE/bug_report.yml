@@ -1,0 +1,26 @@
+name: Bug Report
+description: Report a bug in the Mailzeet TypeScript SDK
+labels: [bug]
+
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: What is the issue?
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce the issue?
+      placeholder: Paste a code example there...
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: SDK Version
+      placeholder: 0.1.0-alpha.0
+    validations:
+      required: true
