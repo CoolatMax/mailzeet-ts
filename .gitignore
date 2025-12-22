@@ -6,7 +6,7 @@ example/package-lock.json
 # Build output
 dist/
 lib/
-*.gtz
+*.tgz
 
 # Logs
 npm-debug.log*

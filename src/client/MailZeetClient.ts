@@ -8,14 +8,7 @@ import { EmailsService } from "../modules/emails/emails.services";
  * const mailzeet = new MailZeetClient("YOUR_API_KEY");
  * await mailzeet.emails.send({
   from: "hello@acme.com", // Sender email
-  to: "user@gmail.com", // Recipient email (or array of emails)
-  cc: "cc@example.com", // Optional CC
-  bcc: "bcc@example.com", // Optional BCC
-  replyTo: "replyto@example.com", // Optional reply-to
-  subject: "Welcome",
-  text: "Hello world", // Optio{
-  from: "hello@acme.com", // Sender email
-  to: "user@gmail.com", // Recipient email (or array of emails)
+  to: "user@gmail.com", // Recipient email
   cc: "cc@example.com", // Optional CC
   bcc: "bcc@example.com", // Optional BCC
   replyTo: "replyto@example.com", // Optional reply-to
@@ -24,7 +17,6 @@ import { EmailsService } from "../modules/emails/emails.services";
   html: "<h1>Hello world</h1>", // Optional HTML
   params: { company: "Acme" }, // Dynamic template params
 });
- * ```
  */
 export class MailZeetClient {
   public readonly emails: EmailsService;

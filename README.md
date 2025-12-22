@@ -108,14 +108,7 @@ await mailzeet.emails.send({
   cc: "cc@example.com", // Optional CC
   bcc: "bcc@example.com", // Optional BCC
   replyTo: "replyto@example.com", // Optional reply-to
-  subject: "Welcome",
-  text: "Hello world", // Optio{
-  from: "hello@acme.com", // Sender email
-  to: "user@gmail.com", // Recipient email (or array of emails)
-  cc: "cc@example.com", // Optional CC
-  bcc: "bcc@example.com", // Optional BCC
-  replyTo: "replyto@example.com", // Optional reply-to
-  subject: "Welcome",
+  subject: "Welcome", 
   text: "Hello world", // Optional plain text
   html: "<h1>Hello world</h1>", // Optional HTML
   params: { company: "Acme" }, // Dynamic template params
