@@ -109,6 +109,7 @@ await mailzeet.emails.send({
   bcc: "bcc@example.com", // Optional BCC
   replyTo: "replyto@example.com", // Optional reply-to
   subject: "Welcome", 
+  temlateId: "idhFGDhlxxhd",
   text: "Hello world", // Optional plain text
   html: "<h1>Hello world</h1>", // Optional HTML
   params: { company: "Acme" }, // Dynamic template params
@@ -131,6 +132,11 @@ Please:
 ## License
 
 [MIT Licence](LICENCE)
+
+
+## Changelog
+
+[CHANGELOG](CHANGELOG)
 
 ## Links
 
