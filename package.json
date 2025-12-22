@@ -1,5 +1,5 @@
 {
-  "name": "mailzeet-typescript",
+  "name": "mailzeet-ts",
   "version": "0.1.0-alpha.0",
   "description": "Community TypeScript SDK for the Mailzeet API",
   "author": "Mailzeet Community",
@@ -14,7 +14,9 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
@@ -22,11 +24,35 @@
     "lint": "eslint .",
     "prepare": "npm run build"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "devDependencies": {
+    "eslint": "^9.0.0",
+    "prettier": "^3.2.5",
     "tsup": "^8.0.0",
     "typescript": "^5.4.0",
-    "vitest": "^1.6.0",
-    "eslint": "^9.0.0",
-    "prettier": "^3.2.5"
+    "vitest": "^1.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prince0xdev/mailzeet-ts"
+  },
+  "homepage": "https://github.com/prince0xdev/mailzeet-ts",
+  "bugs": {
+    "url": "https://github.com/prince0xdev/mailzeet-ts/issues"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "mailzeet",
+    "email",
+    "transactional-email",
+    "typescript",
+    "nodejs",
+    "sdk",
+    "api"
+  ],
+  "dependencies": {
+    "mailzeet-ts": "file:mailzeet-ts-0.1.0-alpha.0.tgz"
   }
 }
