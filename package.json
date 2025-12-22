@@ -51,8 +51,5 @@
     "nodejs",
     "sdk",
     "api"
-  ],
-  "dependencies": {
-    "mailzeet-ts": "file:mailzeet-ts-0.1.0-alpha.0.tgz"
-  }
+  ]
 }
