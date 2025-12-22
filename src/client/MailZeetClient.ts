@@ -1,21 +1,41 @@
-import { EmailsService } from "../modules/emails/email.services";
-
+import { EmailsService } from "../modules/emails/emails.services";
 
 /**
  * Mailzeet main client
  *
  * @example
  * ```ts
- * const mailzeet = new MailzeetClient({ apiKey: "key" });
- * await mailzeet.emails.send({...});
+ * const mailzeet = new MailZeetClient("YOUR_API_KEY");
+ * await mailzeet.emails.send({
+  from: "hello@acme.com", // Sender email
+  to: "user@gmail.com", // Recipient email (or array of emails)
+  cc: "cc@example.com", // Optional CC
+  bcc: "bcc@example.com", // Optional BCC
+  replyTo: "replyto@example.com", // Optional reply-to
+  subject: "Welcome",
+  text: "Hello world", // Optio{
+  from: "hello@acme.com", // Sender email
+  to: "user@gmail.com", // Recipient email (or array of emails)
+  cc: "cc@example.com", // Optional CC
+  bcc: "bcc@example.com", // Optional BCC
+  replyTo: "replyto@example.com", // Optional reply-to
+  subject: "Welcome",
+  text: "Hello world", // Optional plain text
+  html: "<h1>Hello world</h1>", // Optional HTML
+  params: { company: "Acme" }, // Dynamic template params
+});
  * ```
  */
 export class MailZeetClient {
   public readonly emails: EmailsService;
 
-  constructor(config: { apiKey: string; baseUrl?: string }) {
-    const baseUrl = config.baseUrl ?? "https://api.mailzeet.com/v1";
+  private static readonly BASE_URL = "https://api.mailzeet.com/v1";
 
-    this.emails = new EmailsService(config.apiKey, baseUrl);
+  constructor(apiKey: string) {
+    if (!apiKey) {
+      throw new Error("Mailzeet API key is required");
+    }
+
+    this.emails = new EmailsService(apiKey, MailZeetClient.BASE_URL);
   }
 }

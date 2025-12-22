@@ -10,7 +10,7 @@ export class MailZeetError extends Error {
 
   constructor(message: string, status: number, data?: unknown) {
     super(message);
-    this.name = "MailzeetError";
+    this.name = "MailZeetError";
     this.status = status;
     this.data = data;
   }

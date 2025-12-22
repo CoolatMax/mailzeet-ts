@@ -7,6 +7,17 @@ export interface MailzeetSender {
 }
 
 /**
+ * Email success/error response from Mailzeet API
+ */
+export interface SendEmailResponse {
+  success: boolean;
+  message: string;
+  data: {
+    sendingId: string;
+  };
+}
+
+/**
  * Email recipient (also used for CC and BCC)
  */
 export interface MailzeetRecipient {
@@ -30,7 +41,7 @@ export interface SendEmailPayload {
   recipients: MailzeetRecipient[];
   cc?: MailzeetRecipient[];
   bcc?: MailzeetRecipient[];
-  reply_to?: MailzeetReplyTo;
+  "reply_to.email"?: MailzeetReplyTo;
 
   subject?: string;
   text?: string;
