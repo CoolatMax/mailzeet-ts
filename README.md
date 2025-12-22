@@ -104,7 +104,7 @@ You can send emails using a **simplified payload**:
 ```ts
 await mailzeet.emails.send({
   from: "hello@acme.com", // Sender email
-  to: "user@gmail.com", // Recipient email (or array of emails)
+  to: "user@gmail.com", // Recipient email
   cc: "cc@example.com", // Optional CC
   bcc: "bcc@example.com", // Optional BCC
   replyTo: "replyto@example.com", // Optional reply-to
