@@ -5,7 +5,6 @@ This project is **community-driven**, beginner-friendly, and focused on **clean 
 
 Whether you want to fix a typo, improve types, add features, or learn by contributing — you’re welcome.
 
----
 
 ## Project philosophy
 
@@ -20,7 +19,6 @@ This SDK follows a few core principles:
 
 If your contribution aligns with these values, it’s likely welcome.
 
----
 
 ## Project structure
 
@@ -41,7 +39,6 @@ mailzeet-ts/
 └── CHANGELOG.md
 ```
 
----
 
 ## What you can contribute
 
@@ -73,7 +70,6 @@ You can help in many ways:
 * Improve example app
 * Improve developer experience
 
----
 
 ## Development setup
 
@@ -102,23 +98,18 @@ npm run dev
 npm run test
 ```
 
----
-
 ## Running the example app (important)
 
 The SDK includes a **Vite-based example app** for local testing.
 
 ```bash
-cd examples
+cd example
 npm install
 npm run dev
 ```
 
-Create a `.env` file in the example folder:
+Copy a `.env.example` file to `.env` file and set the values of variables in the example folder:
 
-```env
-VITE_MAILZEET_API_KEY=your_api_key_here
-```
 
 This example is used to:
 
@@ -128,7 +119,6 @@ This example is used to:
 
 If you change SDK behavior, **always test the example app**.
 
----
 
 ## API design rules (very important)
 
@@ -155,9 +145,8 @@ cc
 bcc
 ```
 
-👉 **Parsing complexity belongs inside the SDK, not to the user.**
+**Parsing complexity belongs inside the SDK, not to the user.**
 
----
 
 ### 2. Do NOT expose internal API constraints to users
 
@@ -171,10 +160,7 @@ Good ✅:
 
 ```ts
 to: "user@gmail.com"
-to: ["a@mail.com", "b@mail.com"]
 ```
-
----
 
 ### 3. Types must guide the user
 
@@ -184,8 +170,6 @@ to: ["a@mail.com", "b@mail.com"]
 * Narrow types properly
 
 If TypeScript autocomplete feels bad → it’s a bug.
-
----
 
 ## Error handling rules
 
@@ -201,8 +185,6 @@ Example:
 ```ts
 throw new MailZeetError("Invalid API key", 401);
 ```
-
----
 
 ## Testing rules
 
@@ -223,8 +205,6 @@ Not recommended:
 expect(fetch).toHaveBeenCalledWith(EXACT_OBJECT);
 ```
 
----
-
 ## Commit guidelines
 
 Use clear, simple commit messages:
@@ -236,8 +216,6 @@ test: improve EmailsService tests
 docs: improve contributing guide
 ```
 
----
-
 ## Pull request checklist
 
 Before opening a PR, make sure:
@@ -248,8 +226,6 @@ Before opening a PR, make sure:
 * [ ] Types are correct
 * [ ] No breaking change without discussion
 * [ ] Code is readable
-
----
 
 ## Beginner-friendly note
 
@@ -265,23 +241,17 @@ You just need to:
 
 If something is unclear, open an issue.
 
----
-
 ## Communication
 
 * Open an **Issue** for bugs, ideas, or questions
 * Open a **Draft PR** if you’re unsure
 * Discussions are welcome
 
----
-
 ## License
 
 By contributing, you agree that your contributions will be licensed under the **MIT License**.
 
----
-
-Thank you for contributing 💙
+Thank you for contributing 
 This SDK exists because of the community.
 
 — **Mailzeet TypeScript SDK Community**
