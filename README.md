@@ -126,6 +126,7 @@ Please:
 1. Fork the repository
 2. Create a feature branch
 3. Submit a pull request
+4. Don't forget reading the [contributions guidelines](CONTRIBUTING.md)
 
 > Make sure to follow TypeScript typings and write tests using Vitest.
 
