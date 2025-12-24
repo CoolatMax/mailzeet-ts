@@ -131,12 +131,12 @@ Please:
 
 ## License
 
-[MIT Licence](LICENCE)
+[MIT Licence](LICENCE.md)
 
 
 ## Changelog
 
-[CHANGELOG](CHANGELOG)
+[CHANGELOG](CHANGELOG.md)
 
 ## Links
 
