@@ -36,7 +36,7 @@ yarn add mailzeet-ts
 bun add mailzeet-ts
 ```
 
-### Using a CDN (for browser)
+### Using a CDN (for browser and recommand for dev mode only)
 
 ```html
 <script type="module">

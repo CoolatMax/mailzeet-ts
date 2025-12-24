@@ -1,9 +1,3 @@
-Parfait. Voici un **`CONTRIBUTING.md` clair, pédagogique et adapté à un projet open-source avec des contributeurs juniors comme seniors**, basé sur tout ce qu’on a construit ensemble (SDK TS, tests, parsing, DX, Vite example, etc.).
-
-Tu peux le copier tel quel à la racine du repo.
-
----
-
 # Contributing to Mailzeet TypeScript SDK
 
 Thank you for your interest in contributing to **Mailzeet TypeScript SDK**
@@ -40,7 +34,7 @@ mailzeet-ts/
 │   └── index.ts         # Public exports
 │
 ├── tests/               # Vitest tests
-├── examples/            # Vite dev example (HTML + TS)
+├── example/            # Vite dev example (HTML + TS)
 ├── dist/                # Build output (generated)
 ├── README.md
 ├── CONTRIBUTING.md
