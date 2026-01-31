@@ -1,17 +1,20 @@
 import { http } from "../../client/http";
-import { SendEmailInput } from "./emails.input";
+import type { SendEmailInput } from "./emails.input"; // Added 'type' 
 import { parseSendEmailInput } from "./emails.parser";
-import { SendEmailResponse } from "./emails.types";
+import type { SendEmailResponse } from "./emails.types"; // Added 'type'
 
 /**
  * Emails API module
  */
 export class EmailsService {
-  constructor(
-    private readonly apiKey: string,
-    private readonly baseUrl?: string
-  ) {
-    this.baseUrl = "https://api.mailzeet.com/v1";
+  
+  private readonly apiKey: string;
+  private readonly baseUrl: string;
+
+  constructor(apiKey: string, baseUrl?: string) {
+    
+    this.apiKey = apiKey;
+    this.baseUrl = baseUrl || "https://api.mailzeet.com/v1";
   }
 
   /**

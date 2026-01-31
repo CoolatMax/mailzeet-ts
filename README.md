@@ -51,50 +51,87 @@ bun add mailzeet-ts
 ### Node.js / TypeScript
 
 ```ts
-import { MailzeetClient } from "mailzeet-ts";
+import { MailZeetClient, MailZeetError } from "mailzeet-ts";
 
-const apiKey = process.env.MAILZEET_API_KEY!;
+const mailzeet = new MailZeetClient("your_api_key");
 
-// Initialize client
-const mailzeet = new MailzeetClient(apiKey);
-
-// Send an email
-await mailzeet.emails.send({
-  from: "hello@acme.com",
-  to: "user@gmail.com",
-  subject: "Welcome",
-  html: "<h1>Hello</h1>",
-});
+try {
+  const response = await mailzeet.emails.send({
+    from: { email: "hello@acme.com", name: "Acme Team" }, // Object style
+    to: ["user1@gmail.com", "user2@gmail.com"],         // Array support
+    subject: "Monthly Report",
+    templateId: "report-template-123",
+    params: {
+      month: "January",
+      year: 2026
+    }
+  });
+  console.log("Sent successfully:", response.data.sendingId);
+} catch (err) {
+  if (err instanceof MailZeetError) {
+    console.error(`API Error (${err.status}): ${err.message}`);
+  }
+}
 ```
+### Configuation Reference
 
-### Browser / Frontend
+|Option	| Type	| Required	| Description |
+|-------|-------|-----------|-------------|
+|`from`	| `string/ Object`	| No |	Sender email and optional name. |
+|`to` | `string/ Array`	| Yes	| One or more recipient emails. |
+|`cc / bcc` |	`Array `|	No	|List of carbon copy recipients. |
+|`templateId`	| `string`	| No	| ID of a pre-defined Mailzeet template. |
+|`params`	| `Object` | No	| Dynamic data for template placeholders. |
 
+### Browser (Node.js / TypeScript)
+For server-side environments, use environment variables to secure your API key.
 ```ts
-import { MailzeetClient } from "mailzeet-ts";
+import { MailZeetClient, MailZeetError } from "mailzeet-ts";
 
-const mailzeet = new MailzeetClient("YOUR_API_KEY_HERE");
+const mailzeet = new MailZeetClient(process.env.MAILZEET_API_KEY!);
 
-document.getElementById("email-form")?.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const to = (document.getElementById("to") as HTMLInputElement).value;
-  const subject = (document.getElementById("subject") as HTMLInputElement)
-    .value;
-  const html = (document.getElementById("html") as HTMLTextAreaElement).value;
-  const result = document.getElementById("result") as HTMLPreElement;
-
+async function sendWelcomeEmail() {
   try {
     const response = await mailzeet.emails.send({
-      from: "hello@acme.com",
-      to,
-      subject,
-      html,
+      from: { email: "sales@acme.com", name: "Acme Corp" },
+      to: "customer@gmail.com",
+      subject: "Your Order is Confirmed",
+      templateId: "welcome-email-v1",
+      params: {
+        customerName: "John Doe",
+        orderId: 12345
+      }
     });
-    result.textContent = JSON.stringify(response, null, 2);
-  } catch (err: unknown) {
-    result.textContent = err instanceof Error ? err.message : "Unknown error";
+    console.log("Email Sent! ID:", response.data.sendingId);
+  } catch (err) {
+    if (err instanceof MailZeetError) {
+      console.error(`Mailzeet Error [${err.status}]: ${err.message}`);
+    }
   }
-});
+}
+```
+### Frontend (Browser / Vite)
+When using in the frontend, ensure you are using the modular exports for smaller bundle sizes. 
+
+> **Note**: Be careful not to expose your Secret API key in client-side code in production; use a proxy or backend wrapper for production apps.
+
+```ts
+import { MailZeetClient } from "mailzeet-ts";
+
+const mailzeet = new MailZeetClient("public_key_here");
+
+const handleFormSubmit = async (formData) => {
+  const { data, success } = await mailzeet.emails.send({
+    from: "noreply@acme.com",
+    to: formData.email,
+    subject: "Newsletter Signup",
+    html: `<p>Thanks for joining!</p>`
+  });
+
+  if (success) {
+    alert(`Success! Tracking ID: ${data.sendingId}`);
+  }
+};
 ```
 
 ## Payloads

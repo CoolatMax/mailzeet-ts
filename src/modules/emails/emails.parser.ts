@@ -1,7 +1,7 @@
 // src/modules/emails/emails.parser.ts
 
-import { SendEmailInput } from "./emails.input";
-import { MailzeetRecipient, SendEmailPayload } from "./emails.types";
+import type { SendEmailInput } from "./emails.input"; // Added 'type'
+import type { MailzeetRecipient, SendEmailPayload } from "./emails.types"; // Added 'type'
 
 function normalizeRecipient(
   value: string | { email: string; name?: string }
